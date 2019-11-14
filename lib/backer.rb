@@ -1,4 +1,3 @@
-require 'pry'
 class Backer
   attr_accessor :name, :project
   @@all = []
@@ -13,7 +12,7 @@ class Backer
     save
   end
   def back_project(project)associationtypemismatch
-    raise AssociationTypeMismatchError,"#{project.class} received, Project expected."
+    raise AssociationTypeMismatchError,"#{project.class} received, Project expected." if !project.is_a?(Project)
     project.backer = self
     #backed_projects<<project
     #project.add_backer(self) unless project.backers.include?(self)

@@ -12,7 +12,7 @@ class Project
     save
   end
   def add_backer(backer)
-    raise AssociationTypeMismatchError,"#{backer.class} received, Backer expected."
+    raise AssociationTypeMismatchError,"#{backer.class} received, Backer expected." if !backer.is_a?(Backer)
     backer.project=self
     #backers<<backer
     #backer.back_project(self) unless backer.backed_projects.include?(self)
